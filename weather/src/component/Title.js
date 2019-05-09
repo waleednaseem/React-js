@@ -1,11 +1,13 @@
 import React from 'react';
 
-export default class Title extends React.Component{
-    render(){
-        return(
-            <div>
-                Title
-            </div>
+class Title extends React.Component {
+    render() {
+        return (
+            <React.Fragment>
+                <h1>Get Temperature!</h1>
+            </React.Fragment>
         );
     }
 }
+
+export default Title;

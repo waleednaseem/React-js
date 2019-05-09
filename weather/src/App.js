@@ -1,53 +1,40 @@
 import React from 'react';
 import Title from "./component/Title";
-import Form from "./component/Form";
+import UserInput from "./component/UserInput";
 import Weather from "./component/Weather";
+import axios from 'axios';
+import { WEATHER_URL } from './const';
 
-const ApiKey = "0ad3142d9cf47263292e65d4fccda90d";
+class App extends React.Component {
+  state = {
+    city: null,
+    temperature: null
+  };
 
-export default class App extends React.Component{
-  state={
-    temperature: undefined,
-    city: undefined,
-    country: undefined,
-    humidity: undefined,
-    description: undefined,
-    error: undefined
-}
+  getWeatherData(city, country) {
+    const url = WEATHER_URL(city, country);
+    axios.get(url).then(({ data: { list: responseList } }) => {
+      if (responseList.length > 0) {
+        this.setState({ city: responseList[0].name, temperature: responseList[0].main.temp })
+      }
+    }).catch((err) => { console.log('error') });
+  };
 
-  getWeather= async (e) =>{
-    
-    e.preventDefault();
-    const city= e.target.elements.City.value;
-    const country= e.target.elements.Country.value;
-
-    const Api_call = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${city},${country}&units=metric&appid=${ApiKey}`);
-    const data = await Api_call.json();
-    console.log(data);
-    this.setState({
-      temperature: data.Main.temp,
-      city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.Weather[0].description,
-      error: ""
-    });
+  handleOnClick(city, country) {
+    if (city !== undefined && country !== undefined) {
+      this.getWeatherData(city, country);
+    }
   }
-  render(){
-    return(
+
+  render() {
+    return (
       <div>
         <Title />
-        <Form getWeather={this.getWeather}/> 
-
-        <Weather 
-          temperature={this.state.temperature}
-          city={this.state.city}
-          country={this.state.country}
-          humidity={this.state.humidity}
-          description={this.state.description}
-          error={this.state.error}
-        />
+        <UserInput onClick={this.handleOnClick.bind(this)} />
+        {this.state.city && this.state.temperature && <Weather {...this.state} />}
       </div>
     );
   }
 }
+
+export default App;
