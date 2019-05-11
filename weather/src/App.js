@@ -25,11 +25,11 @@ export default class App extends React.Component{
     const data = await Api_call.json();
     console.log(data);
     this.setState({
-      temperature: data.Main.temp,
+      temperature: data.list[0].main.temp,
       city: data.name,
-      country: data.sys.country,
-      humidity: data.main.humidity,
-      description: data.Weather[0].description,
+      country: data.list[0].sys.country,
+      humidity: data.list[0].main.humidity,
+      // description: data.list[0].Weather[0].description,
       error: ""
     });
   }
