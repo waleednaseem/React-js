@@ -23,15 +23,17 @@ export default class App extends React.Component{
 
     const Api_call = await fetch(`https://api.openweathermap.org/data/2.5/find?q=${city},${country}&units=metric&appid=${ApiKey}`);
     const data = await Api_call.json();
-    console.log(data);
+    if(country){
+      console.log(data);
     this.setState({
       temperature: data.list[0].main.temp,
       city: data.name,
       country: data.list[0].sys.country,
       humidity: data.list[0].main.humidity,
-      // description: data.list[0].Weather[0].description,
+      description: data.list[0].weather[0].description,
       error: ""
     });
+    }
   }
   render(){
     return(
