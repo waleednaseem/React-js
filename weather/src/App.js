@@ -33,6 +33,15 @@ export default class App extends React.Component{
       description: data.list[0].weather[0].description,
       error: ""
     });
+    }else{
+      this.setState({
+        temperature: undefined,
+        city: undefined,
+        country: undefined,
+        humidity: undefined,
+        description: undefined,
+        error: "please entry any value"
+      });
     }
   }
   render(){
