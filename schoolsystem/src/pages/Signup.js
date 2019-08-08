@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import config from './Config/config';
+import Signin from './Signin';
 import Login from './Login';
 
 export default class Signup extends Component {
@@ -13,15 +14,15 @@ export default class Signup extends Component {
     //   Password: '',
     //   name : '',
     //   hasAgreed: false
-    // },
+    // };
     this.authListener = this.authListener.bind(this);
   }
   authListener(){
-    config.auth().onAuthStateChanged((User)=>{
-      if(User){
-       this.setState(<div><Login /></div>);
+    config.auth().onAuthStateChanged((name)=>{
+      if(name){
+       this.setState({name});
       }else{
-        this.setState({User: null});
+        this.setState({name: null});
       }
     });
   }
@@ -58,7 +59,7 @@ export default class Signup extends Component {
             </label>
           </div>   */}
           <div className="form-form">
-            <button className="sign-button" > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
+            <button className="sign-button" onClick={this.SignUp} > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
           </div>
         </form>
       </div>  

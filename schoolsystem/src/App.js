@@ -4,7 +4,7 @@ import './App.css';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import { wooden } from './images/wooden.jpg';
-import logedin from './pages/Login';
+import Login from './pages/Login';
 import config from './pages/Config/config'
 
 
@@ -25,11 +25,11 @@ class App extends Component {
   }
 
   authListener(){
-    config.auth().onAuthStateChanged((User)=>{
-      if(User){
-       this.setState({User});
+    config.auth().onAuthStateChanged((name)=>{
+      if(name){
+       this.setState({name});
       }else{
-        this.setState({User: null});
+        this.setState({name: null});
       }
     });
   }
