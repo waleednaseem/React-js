@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import config from './Config/config';
-import Signin from './Signin';
 import Login from './Login';
 
 export default class Signup extends Component {
@@ -9,20 +8,20 @@ export default class Signup extends Component {
   constructor(props){
     super(props);
 
-    this.state={
-      Email : '',
-      Password: '',
-      name : '',
-      hasAgreed: false
-    };
+    // this.state={
+    //   Email : '',
+    //   Password: '',
+    //   name : '',
+    //   hasAgreed: false
+    // },
     this.authListener = this.authListener().bind(this);
   }
   authListener(){
     config.auth().onAuthStateChanged((User)=>{
       if(User){
-       <div><Login /></div> 
+       this.setState({User});
       }else{
-        <div><Signin /></div>
+        this.setState({User: null});
       }
     });
   }
@@ -40,7 +39,7 @@ export default class Signup extends Component {
   render() {
     return (
       <div className="form-center">
-        <form onSubmit={} className="formField" >
+        <form onSubmit={this.SignUp} className="formField" >
           <div>
             <label className="form-form" htmlFor="Email">
               Email

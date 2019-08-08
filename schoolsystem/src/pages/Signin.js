@@ -21,9 +21,9 @@ export default class Signin extends Component {
   authListener(){
     config.auth().onAuthStateChanged((User)=>{
       if(User){
-       <Login /> 
+       this.setState({User});
       }else{
-        console.log("wronge adress");
+        this.setState({User: null});
       }
     });
   }

@@ -5,6 +5,7 @@ import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import { wooden } from './images/wooden.jpg';
 import logedin from './pages/Login';
+import config from './pages/Config/config'
 
 
 
@@ -26,9 +27,9 @@ class App extends Component {
   authListener(){
     config.auth().onAuthStateChanged((User)=>{
       if(User){
-       <div><Login /></div> 
+       this.setState({User});
       }else{
-        console.log("wronge adress");
+        this.setState({User: null});
       }
     });
   }

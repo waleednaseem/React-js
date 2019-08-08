@@ -1,10 +1,13 @@
-import React from 'react';
-class Logedin extends Component {
+import React ,{Component} from 'react';
+
+
+class Login extends Component {
     state = {  }
     render() { 
         return ( <div>
-            <p>your are logged in</p>
-        </div> );
+                <p>your are logged in</p>
+                </div>
+                );
     }
 }
  
