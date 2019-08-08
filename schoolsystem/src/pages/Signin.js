@@ -25,7 +25,7 @@ export default class Signin extends Component {
       }else{
         this.setState({User: null});
       }
-    });
+    })
   }
   login(){
     const email = document.querySelector("#email").Value;

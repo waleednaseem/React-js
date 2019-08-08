@@ -14,12 +14,12 @@ export default class Signup extends Component {
     //   name : '',
     //   hasAgreed: false
     // },
-    this.authListener = this.authListener().bind(this);
+    this.authListener = this.authListener.bind(this);
   }
   authListener(){
     config.auth().onAuthStateChanged((User)=>{
       if(User){
-       this.setState({User});
+       this.setState(<div><Login /></div>);
       }else{
         this.setState({User: null});
       }
@@ -52,13 +52,13 @@ export default class Signup extends Component {
             </label>
             <input className="form-input" type="Password" id="Password" name="Password" placeholder="type your password"  />
           </div>
-          <div>
+          {/* <div>
             <label className="form-form">
               <input className="check" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} /> do you agree with  <a className="agrement" href="#"> terms and condition</a>
             </label>
-          </div>  
+          </div>   */}
           <div className="form-form">
-            <button className="sign-button" onClick={this.SignUp} > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
+            <button className="sign-button" > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
           </div>
         </form>
       </div>  
