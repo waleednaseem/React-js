@@ -1,25 +1,47 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import config from './Config/config';
+import Login from './Login';
 
 export default class Signin extends Component {
   
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
-  this.state={
-    Email : '',
-    Password: ''
-  };
-   this.handleChange= this.handleChange.bind(this);
-   this.handleSubmit= this.handleSubmit.bind(this);
-  
+  // this.state={
+  //   Email : '',
+  //   Password: ''
+  // },
+   this.authListener = this.authListener.bind(this);
+  }
+  componentDidMount(){
+      this.authListener();
+  }
+
+  authListener(){
+    config.auth().onAuthStateChanged((User)=>{
+      if(User){
+       <Login /> 
+      }else{
+        console.log("wronge adress");
+      }
+    });
+  }
+  login(){
+    const email = document.querySelector("#email").Value;
+    const Password = document.querySelector("#Password").Value;
+
+    config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
+      console.log("your are succesfully loged in");
+    }).catch((err)=>{
+      console.log("Error" + err.toString());
+    })
   }
 
   render() {
     return (
       <div className="form-center">
-        <form onSubmit={this.handleSubmit} className="formField" >
+        <form onSubmit={this.login} className="formField" >
           <div>
             <label className="form-form" htmlFor="Email">
               Email
@@ -33,7 +55,7 @@ export default class Signin extends Component {
             <input className="form-input" type="Password" id="Password" name="Password" placeholder="type your password" />
           </div>
           <div className="form-form">
-            <button className="sign-button" onClick={Signin} >Sign in</button><p className="pp">or</p> <Link to="/Signup" className="sign-link">Create your account now</Link>
+            <button className="sign-button" onClick={this.login} >Sign in</button><p className="pp">or</p> <Link to="/Signup" className="sign-link">Create your account now</Link>
           </div>
         </form>
       </div>  

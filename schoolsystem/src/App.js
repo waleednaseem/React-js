@@ -4,11 +4,35 @@ import './App.css';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import { wooden } from './images/wooden.jpg';
+import logedin from './pages/Login';
 
 
 
 class App extends Component {
   
+  constructor(props){
+    super(props);
+
+  this.state={
+    Email : '',
+    Password: ''
+  };
+   this.authListener = this.authListener.bind(this);
+  }
+  componentDidMount(){
+      this.authListener();
+  }
+
+  authListener(){
+    config.auth().onAuthStateChanged((User)=>{
+      if(User){
+       <div><Login /></div> 
+      }else{
+        console.log("wronge adress");
+      }
+    });
+  }
+
   render() { 
     return (
       <Router baseName="/schoolsystem/">

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
+import config from './Config/config';
+import Signin from './Signin';
+import Login from './Login';
 
 export default class Signup extends Component {
   
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
 
     this.state={
       Email : '',
@@ -12,47 +15,51 @@ export default class Signup extends Component {
       name : '',
       hasAgreed: false
     };
-    this.handleChange= this.handleChange.bind(this);
-    this.handleSubmit= this.handleSubmit.bind(this);
-
+    this.authListener = this.authListener().bind(this);
   }
-  handleChange(e){
-    let target= e.target;
-    let value = target.type === 'checkbox' ? target.checked : target.value;
-    let name = target.name;
-
-    this.setState({
-      [name]: value
+  authListener(){
+    config.auth().onAuthStateChanged((User)=>{
+      if(User){
+       <div><Login /></div> 
+      }else{
+        <div><Signin /></div>
+      }
     });
   }
-  handleSubmit(e){
-    e.preventDefault();
-    console.log("this is your sign up data");
-    console.log(this.state);
-  }  
+  SignUp(){
+    const email = document.querySelector("#email").value;
+    const Password = document.querySelector("#Password").value;
+
+    config.auth().createUserWithEmailAndPassword(email , Password).then((u)=>{
+      console.log("your are successfully signed in");
+    }).catch((err)=>{
+      console.log("Error" + err.toString());
+    })
+  }
+  
   render() {
     return (
       <div className="form-center">
-        <form onSubmit={this.handleSubmit} className="formField" >
+        <form onSubmit={} className="formField" >
           <div>
             <label className="form-form" htmlFor="Email">
               Email
             </label>
-            <input className="form-input" type="email" id="email" placeholder="type your email" name="Email" value={this.state.Email} onChange={this.handleChange} />
+            <input className="form-input" type="email" id="email" placeholder="type your email" name="Email" />
           </div>   
           <div>
             <label className="form-form">
               Password
             </label>
-            <input className="form-input" type="Password" id="Password" name="Password" placeholder="type your password" value={this.state.Password} onChange={this.handleChange}/>
+            <input className="form-input" type="Password" id="Password" name="Password" placeholder="type your password"  />
           </div>
           <div>
             <label className="form-form">
-              <input className="check" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} onChange={this.handleChange} /> do you agree with  <a className="agrement" href="#"> terms and condition</a>
+              <input className="check" type="checkbox" name="hasAgreed" value={this.state.hasAgreed} /> do you agree with  <a className="agrement" href="#"> terms and condition</a>
             </label>
           </div>  
           <div className="form-form">
-            <button className="sign-button" > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
+            <button className="sign-button" onClick={this.SignUp} > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
           </div>
         </form>
       </div>  
