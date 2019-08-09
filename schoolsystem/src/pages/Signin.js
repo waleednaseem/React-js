@@ -19,17 +19,17 @@ export default class Signin extends Component {
   }
 
   authListener(){
-    config.auth().onAuthStateChanged((name)=>{
-      if(name){
-       this.setState({name});
+    config.auth().onAuthStateChanged((user)=>{
+      if(user){
+       this.setState({user});
       }else{
-        this.setState({name: null});
+        this.setState({user: null});
       }
     })
   }
   login(){
-    const email = document.querySelector("#email").Value;
-    const Password = document.querySelector("#Password").Value;
+    const email = document.querySelector("email").Value;
+    const Password = document.querySelector("Password").Value;
 
     config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
       console.log("your are succesfully loged in");
@@ -55,7 +55,7 @@ export default class Signin extends Component {
             <input className="form-input" type="Password" id="Password" name="Password" placeholder="type your password" />
           </div>
           <div className="form-form">
-             <button className="sign-button" {this.state.user ? <Login />:<Signin />} >Sign in</button><p className="pp">or</p> <Link to="/Signup" className="sign-link">Create your account now</Link>
+             <button className="sign-button">Sign in</button><p className="pp">or</p> <Link to="/Signup" className="sign-link">Create your account now</Link>
           </div>
         </form>
       </div>  

@@ -18,11 +18,11 @@ export default class Signup extends Component {
     this.authListener = this.authListener.bind(this);
   }
   authListener(){
-    config.auth().onAuthStateChanged((name)=>{
-      if(name){
-       this.setState({name});
+    config.auth().onAuthStateChanged((user)=>{
+      if(user){
+       this.setState({user});
       }else{
-        this.setState({name: null});
+        this.setState({user: null});
       }
     });
   }
