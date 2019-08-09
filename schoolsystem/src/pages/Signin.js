@@ -28,8 +28,9 @@ export default class Signin extends Component {
     })
   }
   login(){
-    const email = document.querySelector("email").Value;
-    const Password = document.querySelector("Password").Value;
+
+    const email = document.querySelector("#email").Value;
+    const Password = document.querySelector("#Password").Value;
 
     config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
       console.log("your are succesfully loged in");
