@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import config from './Config/config';
-import Signin from './Signin';
-import Login from './Login';
+// import Signin from './Signin';
+// import Login from './Login';
 
 export default class Signup extends Component {
   

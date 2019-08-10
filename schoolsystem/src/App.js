@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, Link, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
 import './App.css';
 import Signin from './pages/Signin';
 import Signup from './pages/Signup';
 import { wooden } from './images/wooden.jpg';
-import Login from './pages/Login';
+// import Login from './pages/Login';
 import config from './pages/Config/config'
 
 

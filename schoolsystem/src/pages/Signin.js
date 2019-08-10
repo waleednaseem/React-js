@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import config from './Config/config';
-import Login from './Login';
+// import Login from './Login';
 
 export default class Signin extends Component {
   
@@ -29,20 +29,22 @@ export default class Signin extends Component {
   }
   login(){
 
-    const email = document.querySelector("#email").Value;
-    const Password = document.querySelector("#Password").Value;
+    const email = document.querySelector("#email").value;
+    const Password = document.querySelector("#password").value;
 
-    config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
-      console.log("your are succesfully loged in");
-    }).catch((err)=>{
-      console.log("Error" + err.toString());
-    })
+    console.log("your detail is  "+ email + "  password is : " + Password);
+
+    // config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
+    //   console.log("your are succesfully loged in");
+    // }).catch((err)=>{
+    //   console.log("Error" + err.toString());
+    // })
   }
 
   render() {
     return (
       <div className="form-center">
-        <form onSubmit={this.login} className="formField" >
+        <form onSubmit={this.login()} className="formField" >
           <div>
             <label className="form-form" htmlFor="Email">
               Email
