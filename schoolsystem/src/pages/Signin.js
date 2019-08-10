@@ -13,6 +13,7 @@ export default class Signin extends Component {
   //   Password: ''
   // },
    this.authListener = this.authListener.bind(this);
+   
   }
   componentDidMount(){
       this.authListener();
@@ -28,11 +29,10 @@ export default class Signin extends Component {
     })
   }
   login(){
-
     const email = document.querySelector("#email").value;
     const Password = document.querySelector("#password").value;
-
-     console.log("your detail is  "+ email + "  password is : " + Password);
+    
+    console.log("your detail is  "+ email + "  password is : " + Password);
 
     // config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
     //   console.log("your are succesfully loged in");
@@ -40,9 +40,12 @@ export default class Signin extends Component {
     //   console.log("Error" + err.toString());
     // })
   }
+  
 
   render() {
+    
     return (
+      
       <div className="form-center">
         <form onSubmit={this.login()} className="formField" >
           <div>
