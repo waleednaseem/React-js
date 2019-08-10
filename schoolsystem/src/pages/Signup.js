@@ -9,12 +9,12 @@ export default class Signup extends Component {
   constructor(props){
     super(props);
 
-    // this.state={
-    //   Email : '',
-    //   Password: '',
-    //   name : '',
-    //   hasAgreed: false
-    // };
+    this.state={
+      Email : '',
+      Password: '',
+      name : '',
+      hasAgreed: false
+    };
     this.authListener = this.authListener.bind(this);
   }
   authListener(){

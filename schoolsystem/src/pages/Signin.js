@@ -8,10 +8,10 @@ export default class Signin extends Component {
   constructor(props){
     super(props);
 
-  // this.state={
-  //   Email : '',
-  //   Password: ''
-  // },
+  this.state={
+    Email : '',
+    Password: ''
+  };
    this.authListener = this.authListener.bind(this);
    
   }
@@ -34,11 +34,11 @@ export default class Signin extends Component {
 
     console.log(" your detail is  "+ email + "  password is : " + Password);
 
-    // config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
-    //   console.log("your are succesfully loged in");
-    // }).catch((err)=>{
-    //   console.log("Error" + err.toString());
-    // })
+    config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
+      console.log("your are succesfully loged in");
+    }).catch((err)=>{
+      console.log("Error" + err.toString());
+    })
   }
   
 
@@ -47,7 +47,7 @@ export default class Signin extends Component {
     return (
       
       <div className="form-center">
-        <form onSubmit={this.login} className="formField" >
+        <form  className="formField" >
           <div>
             <label className="form-form" htmlFor="Email">
               Email
@@ -61,7 +61,7 @@ export default class Signin extends Component {
             <input className="form-input" type="Password" id="Password" name="Password" placeholder="type your password" />
           </div>
           <div className="form-form">
-             <button className="sign-button">Sign in</button><p className="pp">or</p> <Link to="/Signup" className="sign-link">Create your account now</Link>
+             <button className="sign-button" onClick={this.login}>Sign in</button><p className="pp">or</p> <Link to="/Signup" className="sign-link">Create your account now</Link>
           </div>
         </form>
       </div>  
