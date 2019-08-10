@@ -59,7 +59,7 @@ export default class Signup extends Component {
             </label>
           </div>   */}
           <div className="form-form">
-            <button className="sign-button" onClick={this.SignUp} > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
+            <button className="sign-button" > Register </button> <p className="pp">or</p> <Link to="/Signin" className="sign-link">Login your Account</Link>
           </div>
         </form>
       </div>  

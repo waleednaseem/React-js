@@ -31,7 +31,7 @@ export default class Signin extends Component {
   login(){
     const email = document.querySelector("#email").value;
     const Password = document.querySelector("#password").value;
-    
+
     console.log("your detail is  "+ email + "  password is : " + Password);
 
     // config.auth().signInWithEmailAndPassword(email , Password).then((u)=>{
@@ -47,7 +47,7 @@ export default class Signin extends Component {
     return (
       
       <div className="form-center">
-        <form onSubmit={this.login()} className="formField" >
+        <form onSubmit={this.login} className="formField" >
           <div>
             <label className="form-form" htmlFor="Email">
               Email

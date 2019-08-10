@@ -25,11 +25,11 @@ class App extends Component {
   }
 
   authListener(){
-    config.auth().onAuthStateChanged((name)=>{
-      if(name){
-       this.setState({name});
+    config.auth().onAuthStateChanged((user)=>{
+      if(user){
+       this.setState({user});
       }else{
-        this.setState({name: null});
+        this.setState({user: null});
       }
     });
   }
