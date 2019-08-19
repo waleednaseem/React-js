@@ -4,17 +4,17 @@ import TodoList from "./Components/TodoList";
 export default class App extends Component{
  state={
    count:0
- };
+ }
 
   increament= ()=>{
     this.setState(
       {count: this.state.count + 1}
-    );
-  };
+    )
+  }
   decrement= ()=>{
     this.setState(
       {count: this.state.count -1}
-    );
+    )
   }
 
   render(){
@@ -23,7 +23,7 @@ export default class App extends Component{
         <TodoList />
       </div>
 
-    );
+    )
   }
 }
 

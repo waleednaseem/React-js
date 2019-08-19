@@ -1,18 +1,18 @@
-import React , {Component} from "react";
-import TodoForm from "./TodoForm";
-import Todo from "./Todo";
+import React , {Component} from "react"
+import TodoForm from "./TodoForm"
+import Todo from "./Todo"
 
 
 export default class TodoList extends Component{
     state={
         Todos:[]
-    };
+    }
 
     addTodo= todo => {
         this.setState({
             Todos: [todo, ...this.state.Todos]
-        });
-    };
+        })
+    }
     toggleComplete = (id) =>{
         this.setState({
             Todos : this.state.Todos.map(todo =>{
@@ -20,12 +20,12 @@ export default class TodoList extends Component{
                     return{
                         ...todo,
                         complete: !todo.complete
-                    };
+                    }
                 }else{
-                    return todo;
+                    return todo
                 }
             })
-        });
+        })
     }
     
     render(){
@@ -39,6 +39,6 @@ export default class TodoList extends Component{
                      />
                 ))}               
             </div>
-        );
+        )
     }
 }
