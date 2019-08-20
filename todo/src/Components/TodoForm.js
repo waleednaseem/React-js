@@ -1,5 +1,4 @@
 import React from "react"
-import shortid from "shortid"
 
 export default class TodoForm extends React.Component{
    state={
@@ -13,7 +12,6 @@ export default class TodoForm extends React.Component{
     handleSubmit=(event)=>{
         event.preventDefault()
         this.props.onSubmit({
-            id: shortid.generate(),
             Text: this.state.Text,
             complete:false
         })
