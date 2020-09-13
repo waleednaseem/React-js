@@ -7,7 +7,7 @@ import AddTodo from "./Components/AddTodo"
 import { v1 as uuidv1 } from 'uuid'
 import axios from 'axios' 
 import './App.css'
-import Axios from 'axios'
+
 class App extends Component {
   state={
     todos:[]
