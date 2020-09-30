@@ -5,7 +5,7 @@ export default class Header extends Component {
     render() {
         return (
             <React.Fragment>
-                <Navbar bg="dark" variant="dark" >
+                {/* <Navbar bg="dark" variant="dark" >
                         <Navbar.Brand href="#home">Logo</Navbar.Brand>
                     <Nav className="col-sm-4">
                         <Nav.Link href="#home">Home</Nav.Link>
@@ -26,7 +26,7 @@ export default class Header extends Component {
                         <NavDropdown.Item>forth</NavDropdown.Item>
                     </NavDropdown>
                 </Navbar>
-                
+                 */}
                    
             </React.Fragment>
         )
