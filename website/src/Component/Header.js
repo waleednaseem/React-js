@@ -1,34 +1,34 @@
 import React, { Component } from 'react'
-import { Navbar , Nav, NavDropdown} from 'react-bootstrap'
-
+import { Link } from 'react-router-dom'
+import "./header.css"
+import SearchIcon from "@material-ui/icons/Search"
 export default class Header extends Component {
+    
     render() {
         return (
-            <React.Fragment>
-                {/* <Navbar bg="dark" variant="dark" >
-                        <Navbar.Brand href="#home">Logo</Navbar.Brand>
-                    <Nav className="col-sm-4">
-                        <Nav.Link href="#home">Home</Nav.Link>
-                        <Nav.Link href="#features">Features</Nav.Link>
-                        <Nav.Link href="#pricing">Pricing</Nav.Link>
-                    </Nav>
-                    <form className="col-sm-6">
-                        <input type="text" placeholder="Search" className="mr-auto" />
-                        <button className="btn-primary">Search</button>
-                    </form>
-                    <Nav >
-                        <Nav.Link href="#">cart</Nav.Link>
-                    </Nav>
-                    <NavDropdown title="Accounts" href="#">
-                        <NavDropdown.Item>first</NavDropdown.Item>
-                        <NavDropdown.Item>second</NavDropdown.Item>
-                        <NavDropdown.Item>third</NavDropdown.Item>
-                        <NavDropdown.Item>forth</NavDropdown.Item>
-                    </NavDropdown>
-                </Navbar>
-                 */}
-                   
-            </React.Fragment>
+            <div>
+               <nav style={{backgroundColor : "white"}}>
+                    <Link path="#">
+                    <img style={header} src="images/logo.jpg" alt="logo" />
+                    </Link>
+                    
+                    <input style={input_field}  type="text" placeholder="search" />
+                    <SearchIcon style={button} />
+               </nav>
+            </div>
         )
-    }
+    }    
+    
+}
+const header ={
+   height : '100px',
+   padding: '5px 0px ',
+}
+const input_field={
+    padding : '2px',
+    border : '10px 0px'
+}
+const button = {
+    backgroundColor: 'brown',
+    padding: '20px',
 }
