@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import "./header.css"
 // import { Button } from '@material-ui/core'
 import { Search } from '@material-ui/icons'
 
@@ -25,8 +24,16 @@ export default class Header extends Component {
     
 }
 const Logo ={
-   height : '60px',
-
+   height : '50px',
+   
+}
+const headers={
+    backgroundColor: 'black',
+    alignItems: 'center',
+}
+const header__search={
+           display : 'inline-block', 
+           padding: '5px'
 }
 const header__searchInput={
     height : '12px',
@@ -36,12 +43,5 @@ const header__searchInput={
 }
 const header_searchIcon = {
     backgroundColor: 'brown',
-    padding: '1px',
-}
-const headers={
-    backgroundColor: 'black',
-    alignItems: 'center',
-}
-const header__search={
-    display : 'flex',
+    // padding: '1px',
 }
