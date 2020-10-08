@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 // import { Button } from '@material-ui/core'
-import { Search } from '@material-ui/icons'
+import { Search , ShoppingBasket } from '@material-ui/icons'
 
 
 export default class Header extends Component {
@@ -37,10 +37,10 @@ export default class Header extends Component {
                     <span style={headOption2}>prime</span>
                     </div>
                    </Link>
-                   <Link to="/" style={HeaderLink}>
-                    <div style={HeaderOptions}>
-                    <span style={headoption1}>your</span>
-                    <span style={headOption2}>prime</span>
+                   <Link to="/checkout" style={HeaderLink}>
+                    <div style={HeaderOptions_basket}>
+                    <ShoppingBasket />
+                    <span style={headOption2,basket}>0</span>
                     </div>
                    </Link>
                </div>
@@ -55,7 +55,6 @@ const Logo ={
    height : '40px',
    marginLeft: '05px', 
    marginRight: '18px', 
-//    marginTop: '20px', 
 }
 const headers={
     backgroundColor: 'black',
@@ -73,7 +72,7 @@ const header__searchInput={
     width:'100%',
 }
 const header_searchIcon = {
-    backgroundColor: 'brown',
+    backgroundColor: '#FF8C00',
     padding: '4px',
     height: '30px',
     display:'flex'
@@ -84,15 +83,25 @@ const NavHeader ={
 }
 const HeaderLink={
     color : 'white',
-    textDecoration: 'none'
+    textDecoration: 'none',
+    marginLeft: '10px',
+    marginRight:'10px'
 }
 const HeaderOptions={
     display :'flex',
     flexDirection: 'column'
 }
 const headoption1={
-
+    fontSize:'10px'
 }
 const headOption2={
-
+    fontSize: '13px',
+    fontWeight: '700'
+}
+const HeaderOptions_basket={
+    display : 'flex',
+}
+const basket={
+    marginLeft: '05px',
+    marginRight:'05px',
 }

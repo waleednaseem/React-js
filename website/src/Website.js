@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './Component/Header'
 import Footer from './Component/Footer'
 import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
-
+import "./App.css"
 
 
 
@@ -36,4 +36,6 @@ export default class Website extends Component {
     )
   }
 }
+
+
 
