@@ -59,7 +59,9 @@ const Logo ={
 const headers={
     backgroundColor: 'black',
     alignItems: 'center',
-    display:'flex'
+    display:'flex',
+    position: 'sticky',
+    zIndex: '100'
 }
 const header__search={
            display : 'flex',
