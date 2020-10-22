@@ -1,6 +1,10 @@
 .App {
   text-align: center;
 }
+body{
+  background-color: rgb(223, 217, 217);
+  z-index: -1;
+}
 
 ::-webkit-scrollbar{
   width : 10px

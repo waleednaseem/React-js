@@ -17,7 +17,7 @@ const footers = {
     backgroundColor : "black" ,
     color : "white" ,
     textAlign: 'center',
-    position: "fixed",
+    // position: "fixed",
     bottom: '0px',
     width: '100%',
 }

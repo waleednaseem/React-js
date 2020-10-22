@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './Component/Header'
 import Footer from './Component/Footer'
+import Home from './Component/Home'
 import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import "./App.css"
 
@@ -25,9 +26,7 @@ export default class Website extends Component {
           </Route>
           <Route>
             <Header />
-            <h2>
-             Homepage  
-            </h2> 
+            <Home />        
             <Footer />
           </Route>
         </Switch>
@@ -36,6 +35,11 @@ export default class Website extends Component {
     )
   }
 }
-
+const homeRow ={
+  display: 'flex',
+  zIndex : '1',
+  marginLeft: '5px',
+  marginRight: '5px',
+}
 
 
