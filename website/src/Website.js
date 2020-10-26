@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Header from './Component/Header'
+import Header from './Header'
 import Footer from './Component/Footer'
 import Home from './Component/Home'
 import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'

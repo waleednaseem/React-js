@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
-// import { Button } from '@material-ui/core'
 import { Search , ShoppingBasket } from '@material-ui/icons'
+import {useStateValue} from './StateProvider'
 
 
-export default class Header extends Component {
-    
-    render() { 
-        return (
-            <div style={headers}>
+
+export default function Header() {
+    const [{basket}]= useStateValue();
+    return (
+        <div style={headers}>
                 <Link path="/">
                 {/* <img style={Logo} src="images/logo.jpg" alt="logo" /> */}
                 <img style={Logo} src="http://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="logo" />
@@ -40,17 +40,16 @@ export default class Header extends Component {
                    <Link to="/checkout" style={HeaderLink}>
                     <div style={HeaderOptions_basket}>
                     <ShoppingBasket />
-                    <span style={headOption2,basket}>0</span>
+                    <span style={headOption2,Basket}>{basket.lenght}</span>
                     </div>
                    </Link>
                </div>
                
 
             </div>
-        )
-    }    
-    
+    )
 }
+
 const Logo ={
    height : '40px',
    marginLeft: '05px', 
@@ -103,7 +102,7 @@ const headOption2={
 const HeaderOptions_basket={
     display : 'flex',
 }
-const basket={
+const Basket={
     marginLeft: '05px',
     marginRight:'05px',
 }

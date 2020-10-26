@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Website from './Website';
 import * as serviceWorker from './serviceWorker';
+import {StateProvider} from './StateProvider'
+import reducer,{initialState} from './reducer'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Website />
+    <StateProvider initialState={initialState} reducer={reducer}>
+      <Website />
+    </StateProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
