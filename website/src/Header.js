@@ -40,7 +40,7 @@ export default function Header() {
                    <Link to="/checkout" style={HeaderLink}>
                     <div style={HeaderOptions_basket}>
                     <ShoppingBasket />
-                    <span style={headOption2,Basket}>{basket.lenght}</span>
+                    <span style={headOption2,Basket}>0</span>
                     </div>
                    </Link>
                </div>
@@ -104,5 +104,5 @@ const HeaderOptions_basket={
 }
 const Basket={
     marginLeft: '05px',
-    marginRight:'05px',
+    marginRight:'05px'
 }

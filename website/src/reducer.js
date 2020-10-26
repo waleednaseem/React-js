@@ -1,5 +1,5 @@
 export const initialState ={
-    basket: []
+    basket: ["waleed","ali"]
 };
 
 function reducer(state, action){
@@ -10,6 +10,8 @@ function reducer(state, action){
         case 'Delete_from_basket':
             //logic
             break;
+        default:
+            return state;
     }
 }
-export default reducer
+export default reducer;
