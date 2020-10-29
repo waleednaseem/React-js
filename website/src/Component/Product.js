@@ -1,7 +1,21 @@
 import zIndex from '@material-ui/core/styles/zIndex'
 import React from 'react'
+import {useStateValue} from '../StateProvider'
 
 function Product({id,title,price,rating,image}) {
+    const [{basket}, dispatch] = useStateValue();    
+    const addToBasket =() =>{
+           dispatch({
+            type: "Add_to_basket",
+            item: {
+                id: id,
+                title: title,
+                image: image,
+                price: price,
+                rating: rating,
+            },
+           });
+        }; 
     return (
         <div style={productDiv}>
           <div style={productInfo}> 
@@ -19,7 +33,7 @@ function Product({id,title,price,rating,image}) {
             </div>
           </div>
           <img src={image} style={pImage} alt=""/>
-            <button style={buttons}>
+            <button style={buttons} onClick={addToBasket}>
                 Add to card
             </button>
         </div>

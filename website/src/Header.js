@@ -40,7 +40,7 @@ export default function Header() {
                    <Link to="/checkout" style={HeaderLink}>
                     <div style={HeaderOptions_basket}>
                     <ShoppingBasket />
-                    <span style={headOption2,Basket}>0</span>
+                    <span style={headOption2,Basket}>{basket?.length}</span>
                     </div>
                    </Link>
                </div>
