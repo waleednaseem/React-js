@@ -9,7 +9,7 @@ export default function Header() {
     const [{basket}]= useStateValue();
     return (
         <div style={headers}>
-                <Link path="/">
+                <Link to="/">
                 {/* <img style={Logo} src="images/logo.jpg" alt="logo" /> */}
                 <img style={Logo} src="http://pngimg.com/uploads/amazon/amazon_PNG25.png" alt="logo" />
                 </Link>

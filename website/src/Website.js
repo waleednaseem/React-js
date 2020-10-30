@@ -5,6 +5,7 @@ import Footer from './Component/Footer'
 import Home from './Component/Home'
 import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import "./App.css"
+import Checkout from './Component/Checkout'
 
 
 
@@ -15,9 +16,9 @@ export default class Website extends Component {
        <Router>
         <Switch>
           <Route path="/checkout">
-            <h2>
-              checkout 
-            </h2>
+            <Header />
+            <Checkout />
+            <Footer />
           </Route>
           <Route path="/login">
             <h2>
