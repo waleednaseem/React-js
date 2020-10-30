@@ -15,8 +15,7 @@ function Checkout() {
                  ):(
                      <div>
                          <h2>Here's your basket</h2>
-                         {
-                             basket?.map(item =>(
+                         {basket?.map((item) =>(
                                 <CheckoutProduct
                                 id={item.id}
                                 title={item.title}
