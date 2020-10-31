@@ -3,11 +3,11 @@ import {useStateValue} from '../StateProvider'
 
 function CheckoutProduct({id,title,image,price,rating}) {
     const [{basket},dispatch] = useStateValue();
-
+    
     const RemoveFromBasket=()=>{
         dispatch({
             type: "Delete_from_basket",
-            id: id
+            id: id,
         });
     }
     return (

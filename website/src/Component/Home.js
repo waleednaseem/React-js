@@ -12,7 +12,7 @@ import Product from './Product'
                         rating={5} 
                         image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/July/amazonbasics_520x520._SY304_CB442725065_.jpg"/>
                     <Product 
-                        id='1' 
+                        id='2' 
                         title='my product'
                         price={11.98}
                         rating={5} 
@@ -21,19 +21,19 @@ import Product from './Product'
 
                 <div style={homeRow}>
                     <Product 
-                    id='1' 
+                    id='3' 
                     title='my product'
                     price={11.98}
                     rating={5} 
                     image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/July/amazonbasics_520x520._SY304_CB442725065_.jpg"/>
                     <Product 
-                    id='1' 
+                    id='4' 
                     title='my product'
                     price={11.98}
                     rating={5} 
                     image="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2019/July/amazonbasics_520x520._SY304_CB442725065_.jpg"/>
                     <Product 
-                    id='1' 
+                    id='5' 
                     title='my product'
                     price={11.98}
                     rating={5} 
