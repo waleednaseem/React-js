@@ -1,5 +1,5 @@
 import { ShoppingBasket, ShoppingBasketOutlined } from '@material-ui/icons';
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useStateValue} from '../StateProvider'
 import CheckoutProduct from './CheckoutProduct'
 //rfce
@@ -15,16 +15,16 @@ function Checkout() {
                  ):(
                      <div>
                          <h2>Here's your basket</h2>
-                         {basket?.map(item =>(
+                         {basket?.map((item) =>(
                              <CheckoutProduct 
                                 id={item.id}
                                 title={item.title}
                                 image={item.image}
                                 price={item.price}
-                                rating={item.rating}
-                             />
+                                rating={item.rating} 
+                             /> 
                          )
-                        )}
+                         )}
                      </div>
                  )
              }
