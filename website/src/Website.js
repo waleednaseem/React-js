@@ -6,6 +6,7 @@ import Home from './Component/Home'
 import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import "./App.css"
 import Checkout from './Component/Checkout'
+import Login from './Component/Login'
 
 
 
@@ -20,12 +21,10 @@ export default class Website extends Component {
             <Checkout />
             <Footer />
           </Route>
-          <Route path="/login">
-            <h2>
-              Login
-            </h2>
+          <Route path="/Login">
+            <Login />
           </Route>
-          <Route>
+          <Route path='/'>
             <Header />
             <Home />        
             <Footer />
@@ -36,11 +35,11 @@ export default class Website extends Component {
     )
   }
 }
-const homeRow ={
-  display: 'flex',
-  zIndex : '1',
-  marginLeft: '5px',
-  marginRight: '5px',
-}
+// const homeRow ={
+//   display: 'flex',
+//   zIndex : '1',
+//   marginLeft: '5px',
+//   marginRight: '5px',
+// }
 
 
