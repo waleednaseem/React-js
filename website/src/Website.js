@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Header from './Header'
 import Footer from './Component/Footer'
@@ -7,11 +7,34 @@ import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import "./App.css"
 import Checkout from './Component/Checkout'
 import Login from './Component/Login'
+import {useStateValue} from './StateProvider'
+import {auth} from './Component/Firebase'
 
+export default function Website(){
 
-
-export default class Website extends Component {
-  render() {
+    const [{user},dispatch] =useStateValue();
+    useEffect(() => {
+      
+      const unsub = auth.onAuthStateChanged(
+        (Auth_user)=>{
+          if (Auth_user) {
+            dispatch({
+              type: 'Set_user',
+              user: Auth_user
+            })
+          }else{
+            dispatch({
+              type:'Set_user',
+              user: null
+            })
+          }
+        }
+      )
+      return () => {
+        unsub();
+      }
+    }, [])
+      console.log('User is >>>>>>',user)
     return (
      <React.Fragment>
        <Router>
@@ -33,13 +56,7 @@ export default class Website extends Component {
        </Router>
      </React.Fragment>
     )
-  }
+  
 }
-// const homeRow ={
-//   display: 'flex',
-//   zIndex : '1',
-//   marginLeft: '5px',
-//   marginRight: '5px',
-// }
 
 

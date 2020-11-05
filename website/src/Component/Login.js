@@ -1,7 +1,9 @@
 import React,{useState} from 'react'
 import {auth} from './Firebase'
+import {Link , useHistory} from 'react-router-dom'
 
 function Login() {
+    const history = useHistory();
     const [email, setemail] = useState("");
     const [password, setpassword] = useState("");
     
@@ -16,7 +18,7 @@ function Login() {
         event.preventDefault();
         auth.createUserWithEmailAndPassword(email, password).then(
             auth =>{
-
+                history.push('/');
             }
         ).catch((e)=> alert(e.message));
     }
@@ -28,7 +30,7 @@ function Login() {
                <p>UserName</p>
                <input value={email} style={Inputs} onChange={event=>setemail(event.target.value)} placeholder='Username'/>
                <p>Password</p>
-               <input value={password} style={Inputs} placeholder='password'/>
+               <input value={password} style={Inputs} onChange={(event)=> setpassword(event.target.value)} placeholder='password'/>
                <button style={Signin} onClick={login}>Sign in</button>
                <button style={Register} onClick={signup}>Sign up</button>
            </form>

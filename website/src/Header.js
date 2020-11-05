@@ -6,7 +6,7 @@ import {useStateValue} from './StateProvider'
 
 
 export default function Header() {
-    const [{basket}]= useStateValue();
+    const [{basket ,user}]= useStateValue();
     return (
         <div style={headers}>
                 <Link to="/">
@@ -19,9 +19,9 @@ export default function Header() {
                 <Search style={header_searchIcon} />
                </div>
                <div style={NavHeader}>
-                   <Link to="/login" style={HeaderLink}>
+                   <Link to={!user && "./login"} style={HeaderLink}>
                     <div style={HeaderOptions}>
-                    <span style={headoption1}>hello waleed</span>
+                    <span style={headoption1}>{user?.email}</span>
                     <span style={headOption2}>Sign in</span>
                     </div>
                    </Link>

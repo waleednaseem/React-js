@@ -14,7 +14,11 @@ export const getBasketTotal=(basket)=> basket?.reduce((amount, item)=> item.pric
 const reducer=(state, action) =>{
     
     switch(action.type){
-        
+        case 'Set_user':
+            return{
+                ...state,
+                user: action.user
+            }
         case 'Add_to_basket':
             return {
                 ...state,
