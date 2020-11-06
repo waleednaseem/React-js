@@ -2,11 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Search , ShoppingBasket } from '@material-ui/icons'
 import {useStateValue} from './StateProvider'
+import {auth} from './Component/Firebase'
 
 
 
 export default function Header() {
     const [{basket ,user}]= useStateValue();
+    const Login =()=>{
+        if(user){
+            auth.signOut();
+        }
+    }
     return (
         <div style={headers}>
                 <Link to="/">
@@ -20,9 +26,9 @@ export default function Header() {
                </div>
                <div style={NavHeader}>
                    <Link to={!user && "./login"} style={HeaderLink}>
-                    <div style={HeaderOptions}>
+                    <div onClick={Login} style={HeaderOptions}>
                     <span style={headoption1}>{user?.email}</span>
-                    <span style={headOption2}>Sign in</span>
+                    <span style={headOption2}>{user ? 'sign Out':'Sign in'}</span>
                     </div>
                    </Link>
                    <Link to="/" style={HeaderLink}>
