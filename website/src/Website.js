@@ -34,7 +34,7 @@ export default function Website(){
         unsub();
       }
     }, [])
-      console.log('User is >>>>>>',user)
+     
     return (
      <React.Fragment>
        <Router>
