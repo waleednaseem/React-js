@@ -15,11 +15,11 @@ app.get('/',(request,res) =>
 app.post('/patments/create',async (request , res)=>{
     const total=request.query.total;
     console.log('Booom payment recieved succesfully',total);
-    const paymentIntent=await stripe.paymentIntent.create({
+    const paymentIntent=await stripe.paymentIntents.create({
         amount: total,
         currency: 'usd'
     });
-    request.status(201).send({
+    res.status(201).send({
         clientSecret: paymentIntent.client_secret,
     })
 });
