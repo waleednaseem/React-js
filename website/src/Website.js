@@ -59,7 +59,7 @@ export default function Website(){
           </Route>
           <Route path='/'>
               <Header />
-              <Home />        
+                <Home />        
               <Footer />
           </Route>
         </Switch>

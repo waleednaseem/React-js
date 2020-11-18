@@ -1,12 +1,15 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useStateValue} from '../StateProvider'
 import CheckoutProduct from './CheckoutProduct'
 import CurrencyFormat from 'react-currency-format'
 import {getBasketTotal} from '../reducer'
-import instance from './Axios'
+import {Link,useHistory} from 'react-router-dom'
+import axios from './axios'
+
 
 function Payment() {
+    const history=useHistory();
     const [{basket},user] = useStateValue();
     const stripe= useStripe();
     const Elements =useElements();
@@ -20,13 +23,13 @@ function Payment() {
         const getClientSecret = async () =>{
             const response = await axios({
                 method:'post',
-                url:`/payment/create?total=${getBasketTotal(basket)* 100}`
+                url:`/payments/create?total=${getBasketTotal(basket)* 100}`
             })
             setClientSecret(response.data.clientSecret);
         }   
         getClientSecret();     
     }, [basket])
-
+    
     const handleSubmit=async (e)=>{
         e.preventDefault();
         setProcessing(true);
@@ -37,18 +40,24 @@ function Payment() {
         }).then(({paymentIntent})=>{
             setSucceeded(true);
             setError(null);
-            setProcessing('/order')
+            setProcessing(false);
+
+            history.replaceState('/orders')
         })
     }
+
     const onHandleChange = event =>{
         setDisabled(event.empty);
         setError(event.error? event.error.message :'');
     }
     return (
         <div style={{backgroundColor:'white'}}>
+            <h1>
+            <Link to='/checkout'>{basket?.length}items</Link>
+            </h1>
             <div style={adress}>
                 <h1>Adress for shipping </h1>
-                <p>kwhfk   fowefj   ow</p>
+                <p>for {user?.email}</p>
                 <p>kwhfk   post 0999</p>
                 <p>Duabi</p>
             </div>
