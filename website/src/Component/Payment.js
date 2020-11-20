@@ -12,7 +12,7 @@ function Payment() {
     const history=useHistory();
     const [{basket},user] = useStateValue();
     const stripe= useStripe();
-    const Elements =useElements();
+    const elements =useElements();
     const [error, setError] = useState(null);
     const [disabled, setDisabled]= useState(true);
     const [succeeded,setSucceeded]=useState(false);
@@ -29,20 +29,21 @@ function Payment() {
         }   
         getClientSecret();     
     }, [basket])
-        console.log('this is a secret', clientSecret)
+       
     const handleSubmit=async (e)=>{
+        
         e.preventDefault();
         setProcessing(true);
         const payload = await stripe.confirmCardPayment(clientSecret,{
             payment_method:{
-                card: Elements.getElement(CardElement)
+                card: elements.getElement(CardElement)
             }
         }).then(({paymentIntent})=>{
             setSucceeded(true);
             setError(null);
             setProcessing(false);
 
-            history.replaceState('/orders')
+            history.replace('/orders')
         })
     }
 

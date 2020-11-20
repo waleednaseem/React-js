@@ -12,7 +12,7 @@ app.use(express.json());
 app.get('/',(request,res) =>
     res.status(200).send('hello world')
 );
-app.post('/patments/create',async (request , res)=>{
+app.post('/payments/create',async (request , res)=>{
     const total=request.query.total;
     console.log('Booom payment recieved succesfully',total);
     const paymentIntent=await stripe.paymentIntents.create({
