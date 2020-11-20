@@ -19,7 +19,14 @@ const reducer=(state, action) =>{
             return{
                 ...state,
                 user: action.user
-            }
+            };
+            
+        case 'Empty_basket':
+            return{
+                ...state,
+                basket: []
+            };
+            break;
         case 'Add_to_basket':
             return {
                 ...state,

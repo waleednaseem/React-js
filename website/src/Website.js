@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import "./App.css"
 import Checkout from './Component/Checkout'
 import Payment from './Component/Payment'
+import Orders from './Component/Orders'
 import Login from './Component/Login'
 import {useStateValue} from './StateProvider'
 import {auth} from './Component/Firebase'
@@ -44,6 +45,11 @@ export default function Website(){
      <React.Fragment>
        <Router>
         <Switch>
+          <Route path='/orders'>
+            <Header />
+            <Orders/>
+            <Footer />
+          </Route>
           <Route path="/checkout">
             <Header />
             <Checkout />

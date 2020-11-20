@@ -10,7 +10,7 @@ import axios from './axios'
 
 function Payment() {
     const history=useHistory();
-    const [{basket},user] = useStateValue();
+    const [{basket},dispatch,user] = useStateValue();
     const stripe= useStripe();
     const elements =useElements();
     const [error, setError] = useState(null);
@@ -42,7 +42,10 @@ function Payment() {
             setSucceeded(true);
             setError(null);
             setProcessing(false);
-
+           
+            dispatch({
+                type: 'Empty_basket'
+            })
             history.replace('/orders')
         })
     }
