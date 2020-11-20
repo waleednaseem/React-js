@@ -17,7 +17,7 @@ function Payment() {
     const [disabled, setDisabled]= useState(true);
     const [succeeded,setSucceeded]=useState(false);
     const [processing,setProcessing]=useState('');
-    const [clientSecret,setClientSecret]=useState('');
+    const [clientSecret,setClientSecret]=useState(true);
     
     useEffect(() => {
         const getClientSecret = async () =>{
@@ -29,7 +29,7 @@ function Payment() {
         }   
         getClientSecret();     
     }, [basket])
-    
+        console.log('this is a secret', clientSecret)
     const handleSubmit=async (e)=>{
         e.preventDefault();
         setProcessing(true);
