@@ -26,7 +26,7 @@ export default function Header() {
                <div style={NavHeader}>
                    <Link to={!user && "./login"} style={HeaderLink}>
                     <div onClick={Login} style={HeaderOptions}>
-                    <span style={headoption1}>{user?.email}</span>
+                    <span style={headoption1}>{user ? user?.email : 'Guest'}</span>
                     <span style={headOption2}>{user ? 'sign Out':'Sign in'}</span>
                     </div>
                    </Link>
