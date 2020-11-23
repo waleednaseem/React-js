@@ -30,7 +30,7 @@ export default function Header() {
                     <span style={headOption2}>{user ? 'sign Out':'Sign in'}</span>
                     </div>
                    </Link>
-                   <Link to="/" style={HeaderLink}>
+                   <Link to="Orders" style={HeaderLink}>
                     <div style={HeaderOptions}>
                     <span style={headoption1}>return</span>
                     <span style={headOption2}>& order</span>

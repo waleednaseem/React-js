@@ -47,12 +47,12 @@ export default function Website(){
         <Switch>
           <Route path='/orders'>
             <Header />
-            <Orders/>
+              <Orders/>
             <Footer />
           </Route>
           <Route path="/checkout">
             <Header />
-            <Checkout />
+              <Checkout />
             <Footer />
           </Route>
           <Route path="/payment">
