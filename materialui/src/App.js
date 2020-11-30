@@ -28,7 +28,7 @@ function App() {
         {...product}
         />
         <hr/>
-        <Forms {...name} setName={setName} />
+        <Forms name={name} setName={setName} />
       </div>
     </div>
   )
