@@ -3,8 +3,23 @@ import React from 'react'
 export default function Form({userInfo}) {
     return (
         <div>
-            <h4>Name :{userInfo.name}</h4>
-           <h4>image :</h4> <img src={userInfo.avatar} alt='user image' />
+            <label style={name}>Name :{userInfo.name}</label>
+           <div style={imgg}>
+            <label style={name}>image</label>
+            <img src={userInfo.avatar} style={image} alt='user image' />
+           </div>
         </div>
     )
+}
+const name={
+    color: 'black',
+    fontSize:'26px'
+}
+const image={
+    hieght: '100px',
+    width: '150px'
+
+}
+const imgg={
+    display:'flex'
 }

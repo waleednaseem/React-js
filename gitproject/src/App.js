@@ -16,7 +16,7 @@ function App() {
   const [error,setError] =useState('')
   
   useEffect(()=>{
-      axios.get(`https://api.github.com/users/Ahsan-J`)
+      axios.get(`https://api.github.com/users/waleednaseem`)
       .then(response =>{
       setData(response.data)
     })
