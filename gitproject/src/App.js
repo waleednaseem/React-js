@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import './App.css';
 import axios from 'axios'
+import Form from './Form'
 
 
 
@@ -12,18 +13,16 @@ function App() {
   const [following,setFollowing] =useState('')
   const [respo,setRespo] =useState('')
   const [avatar,setAvatar] =useState('')
-  const [userinput,setuserInput] =useState('')
   const [error,setError] =useState('')
   
-  // useEffect(
+  useEffect(()=>{
+      axios.get(`https://api.github.com/users/Ahsan-J`)
+      .then(response =>{
+      setData(response.data)
+    })
     
-  //     const api= await axios(`https://api.github.com/users/example`)
-  //     .then(res =>{ res.json()})
-  //     .then(data =>{
-  //     setData(data)
-  //   })
-    
-  // , [])  
+    }    
+  , [])  
 
   const setData=({
     name,
@@ -41,26 +40,23 @@ function App() {
     setAvatar(avatar_url)
   }
   const gitsearch=(e)=>{
-    setuserInput(e.target.value)
+    setUsername(e.target.value)
   }
-  const gitSubmit= async ()=>{
-    
-    const api=await axios(`https://api.github.com/users/${username}`)
-    .then(res => res.json())
-    .then(data => {
-      setData(data)
+  const gitSubmit=(e)=>{
+    e.preventDefault();
+    console.log(username)
+    const api= axios.get(`https://api.github.com/users/${username}`)
+    .then(res => {
+      setData(res.data)
     })
     return api
   }
   return (
     <div>
-      <input type="search" placeholder="Type your UserName" onChange={gitsearch} />
-      <h3>name: {name}</h3>
-      <h3>follower: {followers}</h3>
-      <h3>following: {following}</h3>
-      <h3>picture: {avatar}</h3>
-      <h3>repositories: {respo}</h3>
-      <input type='submit' onChange={gitSubmit}>Search</input>
+     <form onSubmit={gitSubmit} >
+      <input type='search' placeholder='search' onChange={gitsearch}/>
+      <Form userInfo={{name,followers,following,avatar,respo}}/>
+     </form>
     </div>
   );
 }
