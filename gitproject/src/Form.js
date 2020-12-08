@@ -2,9 +2,9 @@ import React from 'react'
 
 export default function Form({userInfo}) {
     return (
-        <div>
+        <div style={mainDiv}>
             <label style={name}>Name :{userInfo.name}</label>
-           <div style={imgg}>
+            <div style={imgg}>
             <label style={name}>image</label>
             <img src={userInfo.avatar} style={image} alt='user image' />
            </div>
@@ -22,4 +22,12 @@ const image={
 }
 const imgg={
     display:'flex'
+}
+const mainDiv={
+    alignContent: 'center',
+    display:'flex',
+    flexDirection: 'column',
+    maxWidth: '600px',
+    margin:'auto',
+    padding: 'auto',
 }

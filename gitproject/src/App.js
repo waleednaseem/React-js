@@ -52,13 +52,23 @@ function App() {
     return api
   }
   return (
-    <div>
-     <form onSubmit={gitSubmit} >
+    <div style={mainDiv}>
+     <form onSubmit={gitSubmit} style={formStyle} >
       <input type='search' placeholder='search' onChange={gitsearch}/>
       <Form userInfo={{name,followers,following,avatar,respo}}/>
      </form>
     </div>
   );
+}
+const mainDiv={
+  maxWidth: '100%',
+  margin:'auto'
+}
+const formStyle={
+  alignContent: 'center',
+  display:'flex',
+  flexDirection: 'column',
+  
 }
 
 export default App;
