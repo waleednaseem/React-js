@@ -16,7 +16,7 @@ function App() {
   const [error,setError] =useState('')
   
   useEffect(()=>{
-      axios.get(`https://api.github.com/users/waleednaseem`)
+      axios.get(`https://api.github.com/users/example`)
       .then(response =>{
       setData(response.data)
     })
@@ -53,10 +53,7 @@ function App() {
   }
   return (
     <div style={mainDiv}>
-     <form onSubmit={gitSubmit} style={formStyle} >
-      <input type='search' placeholder='search' onChange={gitsearch}/>
-      <Form userInfo={{name,followers,following,avatar,respo}}/>
-     </form>
+      <Form userInfo={{name,followers,following,avatar,respo}} search={gitsearch} submit={gitSubmit}/>
     </div>
   );
 }

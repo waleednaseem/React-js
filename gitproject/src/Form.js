@@ -1,14 +1,18 @@
 import React from 'react'
 
-export default function Form({userInfo}) {
+export default function Form({userInfo,submit,search}) {
     return (
         <div style={mainDiv}>
-            <label style={name}>Name :{userInfo.name}</label>
-            <div style={imgg}>
-            <label style={name}>image</label>
-            <img src={userInfo.avatar} style={image} alt='user image' />
-           </div>
+            <form onSubmit={submit} >
+                <input type='search' placeholder='search' onChange={search}/>
+                <label style={name}>Name :{userInfo.name}</label>
+                <div style={imgg}></div>
+                <label style={name}>image</label>
+                <img src={userInfo.avatar} style={image} alt='user image' />
+            </form>
         </div>
+            
+        
     )
 }
 const name={
