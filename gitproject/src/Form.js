@@ -64,7 +64,7 @@ const inputsearch={
     display:'flex',
     margin:'auto',
     marginBottom:'5px',
-    padding: 'auto',
+    padding: '20px',
     border:'4px solid blue',
     borderTop:'0px',
     borderRight:'0px',
