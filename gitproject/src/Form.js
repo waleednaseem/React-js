@@ -8,7 +8,7 @@ export default function Form({userInfo,submit,search}) {
                         <div style={formdiv}>
                             <form onSubmit={submit}>
                                 <input type='search' style={inputsearch} placeholder='search here' onChange={search} />
-                                <div style={oneDiv}>
+                                {userInfo.name ? <div style={oneDiv}>
                                     <img src={userInfo.avatar} style={image}/>
                                     <div>
                                     <h5 style={name}>Name : {userInfo.name}</h5>
@@ -17,13 +17,13 @@ export default function Form({userInfo,submit,search}) {
                                     <h4 style={div50}>Followers :{userInfo.followers}</h4> 
                                         <h4 style={div50}>Following :{userInfo.following}</h4>
                                     </div>
-                                </div>
+                                </div> : ''}
                             </form>
                         </div>
                     </div>
                     <div style={div50}>
-                        {userInfo.respo}
-                    </div>
+                     { !userInfo.name?'':'REPOSITORIES', userInfo.respo}
+                     </div>
                 </div>
             </div>
             

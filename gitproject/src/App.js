@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from 'react'
-import './App.css';
 import axios from 'axios'
 import Form from './Form'
 
@@ -16,7 +15,7 @@ function App() {
   const [error,setError] =useState('')
   
   useEffect(()=>{
-      axios.get(`https://api.github.com/users/example`)
+      axios.get(`https://api.github.com/users/`)
       .then(response =>{
       setData(response.data)
     })
@@ -24,14 +23,7 @@ function App() {
     }    
   , [])  
 
-  const setData=({
-    name,
-    login,
-    followers,
-    following,
-    public_repos,
-    avatar_url
-  })=>{
+  const setData=({name,login,followers,following,public_repos,avatar_url})=>{
     setName(name)
     setUsername(login)
     setFollowers(followers)
@@ -53,19 +45,13 @@ function App() {
   }
   return (
     <div style={mainDiv}>
-      <Form userInfo={{name,followers,following,avatar,respo}} search={gitsearch} submit={gitSubmit}/>
+      <Form userInfo={{name,followers,following,avatar,respo,error}} search={gitsearch} submit={gitSubmit}/>
     </div>
   );
 }
 const mainDiv={
   maxWidth: '100%',
   margin:'auto'
-}
-const formStyle={
-  alignContent: 'center',
-  display:'flex',
-  flexDirection: 'column',
-  
 }
 
 export default App;
