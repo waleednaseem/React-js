@@ -1,0 +1,7 @@
+1. You can add to cart your product and pay Via debit/master card
+
+2. Use virtual payment card as (4242 4242 4242 4242)
+
+3. This app is deployed on firebase
+
+4 i used node(express) to add this virtual payment card system
