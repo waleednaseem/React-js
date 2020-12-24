@@ -23,13 +23,14 @@ function App() {
     }    
   , [])  
 
-  const setData=({name,login,followers,following,public_repos,avatar_url})=>{
+  const setData=({name,login,followers,following,public_repos,avatar_url,error})=>{
     setName(name)
     setUsername(login)
     setFollowers(followers)
     setFollowing(following)
     setRespo(public_repos)
     setAvatar(avatar_url)
+    setError(error)
   }
   const gitsearch=(e)=>{
     setUsername(e.target.value)
@@ -40,6 +41,9 @@ function App() {
     const api= axios.get(`https://api.github.com/users/${username}`)
     .then(res => {
       setData(res.data)
+    }).catch(e=>{
+      console.log(e.response);
+      setError(e.response.data.message)
     })
     return api
   }

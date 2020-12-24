@@ -3,6 +3,7 @@ import './App.css'
 import Product from './Product'
 import Forms from './Forms'
 import MemoComponent from './MemoComponent'
+import Todo from './Todo'
 
 function App() {
   const [value , setvalue]=useState(0);
@@ -10,16 +11,13 @@ function App() {
   const [name , setName] = useState({FirstName:'',LastName:''})
   const [count, setCount]=useState(0)
   const [data,setData]=useState(100)
-  
-  // const plus=()=>{
-  //    setvalue(value + 1)
-  // }
-  // const minus=()=>{
-  //   setvalue(value - 1)
-  // }
+  const [todo , setTodo]= useState([])
   
   return (
     <div style={main}>
+      <div style={practise2}>
+        <Todo todo={todo} setTodo={setTodo}/>
+      </div>
       <div style={practise}>
         <button onClick={()=> setvalue(value + 1)}>+</button>
         <h1> Example for button = {value}</h1>
@@ -35,16 +33,22 @@ function App() {
         <h1>counting : {count}</h1>
         <button onClick={()=> setCount(count +1)}>count</button>
         <button onClick={()=> setData(data + 100)}>data</button>
+        
       </div>
+      
     </div>
   )
 }
 const practise={
-  maxWidth: '500px',
+  maxWidth: '50%',
   margin:'auto',
   backgroundColor:'white'
 }
 const main={
- 
+  display:'flex',
+  maWidth: '100%'
+}
+const practise2={
+  maxWidth: '50%'
 }
 export default App

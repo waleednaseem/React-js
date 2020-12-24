@@ -7,6 +7,7 @@ export default function Form({userInfo,submit,search}) {
                     <div style={div50}>
                         <div style={formdiv}>
                             <form onSubmit={submit}>
+                                <h1 style={git}>Github user Search</h1>
                                 <input type='search' style={inputsearch} placeholder='search here' onChange={search} />
                                 {userInfo.name ? <div style={oneDiv}>
                                     <img src={userInfo.avatar} style={image}/>
@@ -17,7 +18,7 @@ export default function Form({userInfo,submit,search}) {
                                     <h4 style={div50}>Followers :{userInfo.followers}</h4> 
                                         <h4 style={div50}>Following :{userInfo.following}</h4>
                                     </div>
-                                </div> : ''}
+                                </div> : <div style={git}>{userInfo.error}</div>}
                             </form>
                         </div>
                     </div>
@@ -29,6 +30,13 @@ export default function Form({userInfo,submit,search}) {
             
         
     )
+}
+const git={
+    width:'50%',
+    display:'flex',
+    margin:'auto',
+    marginBottom:'5px',
+    padding: '20px',
 }
 const div100={
     width: '100%',
