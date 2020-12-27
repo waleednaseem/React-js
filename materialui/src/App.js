@@ -16,15 +16,15 @@ function App() {
   return (
     <div style={main}>
       <div style={practise2}>
-        <Todo todo={todo} setTodo={setTodo}/>
+        <Todo todo={todo} setTodo={setTodo} />
       </div>
       <div style={practise}>
         <button onClick={()=> setvalue(value + 1)}>+</button>
         <h1> Example for button = {value}</h1>
         <button onClick={()=> setvalue(value - 1)}>-</button>
         <hr/>
-        <Product 
-        {...product}
+          <Product 
+            {...product}
         />
         <hr/>
         <Forms name={name} setName={setName} />
@@ -35,20 +35,22 @@ function App() {
         <button onClick={()=> setData(data + 100)}>data</button>
         
       </div>
-      
+      <div style={practise2}>
+        
+      </div>
     </div>
   )
 }
 const practise={
-  maxWidth: '50%',
-  margin:'auto',
+  maxWidth: '100%',
+  margin:'10px',
   backgroundColor:'white'
 }
 const main={
   display:'flex',
-  maWidth: '100%'
 }
 const practise2={
-  maxWidth: '50%'
+  Width: '300px',
+  margin:'10px',
 }
 export default App
