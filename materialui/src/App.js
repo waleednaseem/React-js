@@ -4,19 +4,19 @@ import Product from './Product'
 import Forms from './Forms'
 import MemoComponent from './MemoComponent'
 import Todo from './Todo'
-import { StateProvider } from "./Context Api/Stateprovider";
+import { stateProvider } from "./Context Api/Stateprovider";
 
 function App() {
   const [value , setvalue]=useState(0);
   const[product]= useState({id:1,title:'my car'})  
-  const [name , setName] = useState({FirstName:'',LastName:''})
+  const [name , setName] = useState()
   const [count, setCount]=useState(0)
   const [data,setData]=useState(100)
   const [todo , setTodo]= useState([])
   
   return (
     <div style={main}>
-      <StateProvider.provider value={value,setvalue,product,name,setName,count,setCount,data,setData,todo,setTodo}>
+     
         <div style={practise2}>
           <Todo todo={todo} setTodo={setTodo} />
         </div>
@@ -29,7 +29,10 @@ function App() {
               {...product}
           />
           <hr/>
-          <Forms name={name} setName={setName} />
+          <stateProvider.provider value={{name,setName}}>
+            <Forms  />
+          </stateProvider.provider>
+          {/* name={name} setName={setName} */}
           <hr/>
           <MemoComponent data={data}/>
           <h1>counting : {count}</h1>
@@ -40,7 +43,7 @@ function App() {
         <div style={practise2}>
           
         </div>
-      </StateProvider.provider>
+      
     </div>
   )
 }

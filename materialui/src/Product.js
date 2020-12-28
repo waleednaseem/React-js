@@ -5,7 +5,7 @@ function Product(props) {
         <div>
             <h1>Example of props</h1>
             <h1>{props.id}</h1>
-           <p> {props.title} </p>
+           <p> {props.title}</p>
         </div>
     )
 }
