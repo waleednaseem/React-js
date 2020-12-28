@@ -1,3 +1,3 @@
-import {createcontext} from 'react'
+import {createContext} from 'react'
 
-export const StateProvider=createcontext({})
+export const StateProvider=createContext({})

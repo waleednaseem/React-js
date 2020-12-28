@@ -1,9 +1,10 @@
-import React ,{useState, useEffect} from 'react'
+import React ,{useState} from 'react'
 import './App.css'
 import Product from './Product'
 import Forms from './Forms'
 import MemoComponent from './MemoComponent'
 import Todo from './Todo'
+import { StateProvider } from "./Context Api/Stateprovider";
 
 function App() {
   const [value , setvalue]=useState(0);
@@ -15,29 +16,31 @@ function App() {
   
   return (
     <div style={main}>
-      <div style={practise2}>
-        <Todo todo={todo} setTodo={setTodo} />
-      </div>
-      <div style={practise}>
-        <button onClick={()=> setvalue(value + 1)}>+</button>
-        <h1> Example for button = {value}</h1>
-        <button onClick={()=> setvalue(value - 1)}>-</button>
-        <hr/>
-          <Product 
-            {...product}
-        />
-        <hr/>
-        <Forms name={name} setName={setName} />
-        <hr/>
-        <MemoComponent data={data}/>
-        <h1>counting : {count}</h1>
-        <button onClick={()=> setCount(count +1)}>count</button>
-        <button onClick={()=> setData(data + 100)}>data</button>
-        
-      </div>
-      <div style={practise2}>
-        
-      </div>
+      <StateProvider.provider value={value,setvalue,product,name,setName,count,setCount,data,setData,todo,setTodo}>
+        <div style={practise2}>
+          <Todo todo={todo} setTodo={setTodo} />
+        </div>
+        <div style={practise}>
+          <button onClick={()=> setvalue(value + 1)}>+</button>
+          <h1> Example for button = {value}</h1>
+          <button onClick={()=> setvalue(value - 1)}>-</button>
+          <hr/>
+            <Product 
+              {...product}
+          />
+          <hr/>
+          <Forms name={name} setName={setName} />
+          <hr/>
+          <MemoComponent data={data}/>
+          <h1>counting : {count}</h1>
+          <button onClick={()=> setCount(count +1)}>count</button>
+          <button onClick={()=> setData(data + 100)}>data</button>
+          
+        </div>
+        <div style={practise2}>
+          
+        </div>
+      </StateProvider.provider>
     </div>
   )
 }
