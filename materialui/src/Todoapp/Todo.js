@@ -4,7 +4,7 @@ import {TodoContext} from './TodoContext'
 const LOCAL_STORAGE_KEY='todo'
 
 export default function Todo() {
-    const{todo,setTodo,addTodo,del,tickTodo,todoRef}=useContext(TodoContext)
+    const{todo,setTodo,addTodo,del,todoRef}=useContext(TodoContext)
 
     
    useEffect(() => {
@@ -20,7 +20,7 @@ export default function Todo() {
            <label>TODO App</label> <br/>
            <input type='text' ref={todoRef} placeholder='add todo here'/>
            <button onClick={addTodo}>Add todo</button>
-           <TodoList todo={todo} tickTodo={tickTodo}/>
+           <TodoList />
             <button onClick={del}>delete selected</button>
            <div>{todo.filter(todo=> !todo.complete).length}left todos</div>
        </div>
