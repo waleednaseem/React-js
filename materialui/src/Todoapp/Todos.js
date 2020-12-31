@@ -1,6 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
+import {TodoContext} from './TodoContext'
 
-export default function Todos({todo,tickTodo}) {
+export default function Todos() {
+    const {todo,tickTodo}=useContext(TodoContext)
+
     function tickTodos(){
         tickTodo(todo.id)
     }

@@ -1,9 +1,9 @@
 import React,{useContext} from 'react'
-import {stateProvider} from './Context Api/Stateprovider'
+import {StateProvider} from './Context Api/Stateprovider'
 
 
 export default function Form2() {
-    const {name }=useContext(stateProvider)
+    const {name }=useContext(StateProvider)
     return (
         <div>
             {name}

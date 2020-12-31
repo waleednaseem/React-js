@@ -1,10 +1,12 @@
-import React ,{useState} from 'react'
+import React ,{useState,useRef} from 'react'
 import './App.css'
 import Product from './Product'
 import Forms from './Forms'
 import MemoComponent from './MemoComponent'
-import Todo from './Todo'
-import { stateProvider } from "./Context Api/Stateprovider";
+import Todo from './Todoapp/Todo'
+import { StateProvider } from "./Context Api/Stateprovider";
+import {TodoContext} from './Todoapp/TodoContext'
+import { v4 as uuidv4 } from 'uuid'
 
 function App() {
   const [value , setvalue]=useState(0);
@@ -14,11 +16,35 @@ function App() {
   const [data,setData]=useState(100)
   const [todo , setTodo]= useState([])
   
+  const todoRef=useRef()
+
+  function tickTodo(id){
+    const newTodo=[...todo]
+    const todos= newTodo.find(todo => todo.id === id)
+    todos.complete = !todos.complete
+    setTodo(newTodo)
+}
+function del(){
+    const newTodo=todo.filter(todo=>!todo.complete)
+    
+    setTodo(newTodo)
+}
+function addTodo(e){
+    const name= todoRef.current.value
+    if(name=== '')return
+    setTodo(prev =>{
+        return [...prev,{id:uuidv4(),name:name,complete:false}]
+    })
+    todoRef.current.value=null
+}
+  
+  
   return (
     <div style={main}>
-     
         <div style={practise2}>
-          <Todo todo={todo} setTodo={setTodo} />
+          <TodoContext.Provider value={{todo,todoRef,setTodo,addTodo,del,tickTodo}}>
+            <Todo />
+          </TodoContext.Provider> 
         </div>
         <div style={practise}>
           <button onClick={()=> setvalue(value + 1)}>+</button>
@@ -29,10 +55,9 @@ function App() {
               {...product}
           />
           <hr/>
-          <stateProvider.provider value={{name,setName}}>
+          <StateProvider.Provider value={{name,setName}}>
             <Forms  />
-          </stateProvider.provider>
-          {/* name={name} setName={setName} */}
+          </StateProvider.Provider>
           <hr/>
           <MemoComponent data={data}/>
           <h1>counting : {count}</h1>
