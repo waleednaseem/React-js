@@ -27,7 +27,7 @@ export const TodoProvider=({children})=>{
         })
         todoRef.current.value=null
     }
-    return<TodoContext.Provider value={{addTodo,del,tickTodo,todo,setTodo}}>
+    return<TodoContext.Provider value={{todo,addTodo,del,tickTodo,setTodo}}>
         {children}
     </TodoContext.Provider>
 }
