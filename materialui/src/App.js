@@ -38,6 +38,7 @@ function App() {
             <Forms/>
           </FormProvider>
           <h1>counting : {count}</h1>
+          <h1>data : {data}</h1>
           <button onClick={()=> setCount(count +1)}>count</button>
           <button onClick={()=> setData(data + 100)}>data</button>
           
