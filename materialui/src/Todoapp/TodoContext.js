@@ -1,10 +1,10 @@
-import React,{createContext,useState,useRef} from 'react'
+import React,{createContext,useState,useRef,useContext} from 'react'
 import { v4 as uuidv4 } from 'uuid'
 
 
-export const TodoContext=createContext({})
+export const TodoContext=createContext([])
 
-export const TodoProvider=({children})=>{
+ const TodoProvider=({children})=>{
     const todoRef=useRef()
     const [todo ,setTodo]= useState([])
 
@@ -27,7 +27,12 @@ export const TodoProvider=({children})=>{
         })
         todoRef.current.value=null
     }
-    return<TodoContext.Provider value={{todo,addTodo,del,tickTodo,setTodo}}>
+    return (
+    <TodoContext.Provider value={{addTodo,del,tickTodo,todo,setTodo,todoRef}}>
         {children}
     </TodoContext.Provider>
+    )
+
 }
+export default TodoProvider
+// export const TodoContexts = () => useContext(TodoContext);

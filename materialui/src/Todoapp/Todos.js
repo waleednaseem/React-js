@@ -1,12 +1,13 @@
 import React,{useContext} from 'react'
 import {TodoContext} from './TodoContext'
 
-export default function Todos() {
-    const {todo,tickTodo}=useContext(TodoContext)
+export default function Todos({todo}) {
+    const {tickTodo}=useContext(TodoContext)
 
     function tickTodos(){
         tickTodo(todo.id)
     }
+    
     return (
         <div>
             <label>

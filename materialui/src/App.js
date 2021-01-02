@@ -4,14 +4,14 @@ import Product from './Product'
 import Forms from './Forms'
 import MemoComponent from './MemoComponent'
 import Todo from './Todoapp/Todo'
-import { StateProvider } from "./Context Api/Stateprovider";
-import {TodoContext} from './Todoapp/TodoContext'
+import  FormProvider from './Context Api/Stateprovider'
+import TodoProvider from './Todoapp/TodoContext'
 
 
 function App() {
   const [value , setvalue]=useState(0);
   const[product]= useState({id:1,title:'my car'})  
-  const [name , setName] = useState()
+  
   const [count, setCount]=useState(0)
   const [data,setData]=useState(100)
   
@@ -20,10 +20,11 @@ function App() {
   return (
     <div style={main}>
         <div style={practise2}>
-          <TodoContext.Provider>
+          <TodoProvider>
             <Todo />
-          </TodoContext.Provider> 
+          </TodoProvider> 
         </div>
+
         <div style={practise}>
           <button onClick={()=> setvalue(value + 1)}>+</button>
           <h1> Example for button = {value}</h1>
@@ -33,16 +34,15 @@ function App() {
               {...product}
           />
           <hr/>
-          <StateProvider.Provider value={{name,setName}}>
-            <Forms  />
-          </StateProvider.Provider>
-          <hr/>
-          <MemoComponent data={data}/>
+          <FormProvider>
+            <Forms/>
+          </FormProvider>
           <h1>counting : {count}</h1>
           <button onClick={()=> setCount(count +1)}>count</button>
           <button onClick={()=> setData(data + 100)}>data</button>
           
         </div>
+
         <div style={practise2}>
           
         </div>

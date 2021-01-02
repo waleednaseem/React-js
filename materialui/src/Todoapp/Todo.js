@@ -5,9 +5,8 @@ import {TodoContext} from './TodoContext'
 const LOCAL_STORAGE_KEY='todo'
 
 export default function Todo() {
-    const{todo,setTodo,addTodo,del,todoRef}=useContext(TodoContext)
+    const {todo,setTodo,addTodo,del,todoRef}=useContext(TodoContext);
 
-    
    useEffect(() => {
       const storedTodo=JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY))
       if(storedTodo) setTodo(storedTodo)
