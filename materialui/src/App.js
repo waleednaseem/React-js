@@ -6,6 +6,7 @@ import MemoComponent from './MemoComponent'
 import Todo from './Todoapp/Todo'
 import  FormProvider from './Context Api/Stateprovider'
 import TodoProvider from './Todoapp/TodoContext'
+import Counting from './Counting'
 
 
 function App() {
@@ -37,11 +38,7 @@ function App() {
           <FormProvider>
             <Forms/>
           </FormProvider>
-          <h1>counting : {count}</h1>
-          <h1>data : {data}</h1>
-          <button onClick={()=> setCount(count +1)}>count</button>
-          <button onClick={()=> setData(data + 100)}>data</button>
-          
+          <Counting/>
         </div>
 
         <div style={practise2}>

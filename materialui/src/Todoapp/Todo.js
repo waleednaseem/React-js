@@ -17,7 +17,7 @@ export default function Todo() {
     
     return (
        <div>
-           <label>TODO App</label> <br/>
+           <label>TODO App (example of props and contextApi)</label> <br/>
            <input type='text' ref={todoRef} placeholder='add todo here'/>
            <button onClick={addTodo}>Add todo</button>
            <TodoList />
