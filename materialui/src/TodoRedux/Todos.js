@@ -11,7 +11,7 @@ export default function Todos() {
             <button onClick={()=> dispatch({type: 'delTodo' , id: todo.id})}>delete</button>
             </div>
             
-            ):'no todo available'}
+            ) : <div>no todo found</div>}
         </div>
     )
 }
