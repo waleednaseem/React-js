@@ -7,6 +7,10 @@ import Todo from './Todoapp/Todo'
 import  FormProvider from './Context Api/Stateprovider'
 import TodoProvider from './Todoapp/TodoContext'
 import Counting from './Counting'
+import TodoRedux from './TodoRedux/TodoRedux'
+import {provider} from 'redux'
+import store from './Redux/store'
+import { Provider } from 'react-redux'
 
 
 function App() {
@@ -42,7 +46,9 @@ function App() {
         </div>
 
         <div style={practise2}>
-          
+          <Provider store={store}>
+            <TodoRedux/>
+          </Provider>
         </div>
       
     </div>

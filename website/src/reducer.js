@@ -1,13 +1,5 @@
 export const initialState ={
-    basket: [
-        // {
-        //     id: '12421',
-        //     title: 'apple laptop',
-        //     price: 300,
-        //     rating:4,
-        //     image:"https://cdn.vox-cdn.com/thumbor/ileb0KkWP85n-s6cVWogA0MoNrc=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/21883188/ipadair3.jpg"
-        // },
-    ],
+    basket: [],
     user: null,
 };
 export const getBasketTotal=(basket)=> basket?.reduce((amount, item)=> item.price + amount ,0);
