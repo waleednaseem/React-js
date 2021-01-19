@@ -6,7 +6,7 @@ export default function Todos() {
     console.log(todo)
     return (
         <div>
-            {todo ? todo.map( todo =>
+            {todo.length > 0 ? todo.map( todo =>
             <div>{(todo.name)}
             <button onClick={()=> dispatch({type: 'delTodo' , id: todo.id})}>delete</button>
             </div>
