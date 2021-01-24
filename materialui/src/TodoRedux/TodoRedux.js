@@ -1,14 +1,16 @@
 import React,{useState} from 'react'
 import {useDispatch} from 'react-redux'
-import { v4 as uuidv4 } from 'uuid'
+import {uuid} from 'uuidv4'
 import Todos from './Todos'
 
 export default function TodoRedux() {
      const dispatch = useDispatch()
+
      const [name,setName]=useState()
+     
      const storeTodo=(e)=>{
          e.preventDefault();
-         dispatch({type:'addTodo',payload:{id:uuidv4(),name}})
+         dispatch({type:'addTodo',payload:{id:uuid(),name}})
          setName('')
      }
     return (
